@@ -1,4 +1,3 @@
-MAINTAINER aleksey.martynenko
 FROM alpine:latest
 # - update system and install nginx
 RUN apk update \
@@ -22,6 +21,8 @@ COPY helloworld.html /www/helloworld.html
 COPY run.sh /run.sh
 # - change execute bit `run.sh`
 RUN chmod +x /run.sh
+# - open port for external accept connection
+EXPOSE 80
 # - definition entrypoint
 CMD ["/run.sh"]
 
